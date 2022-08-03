@@ -1,7 +1,7 @@
 var c = document.getElementById("render");
 var ctx = c.getContext("2d");
-c.width = window.innerWidth;
-c.height = window.innerHeight;
+c.width = window.innerWidth*10;
+c.height = window.innerHeight*10;
 
 function drawDot(x, y, r=1) {
     ctx.fillRect(x,y,r,r);
@@ -24,34 +24,28 @@ drawDot(c.width/2, 10, 2);
 drawDot(c.width-10, c.height-10, 2);
 drawDot(10, c.height-10, 2);
 
-var timeout = 10;
+var count = 1000;
 
 interval = setInterval(() => {
-    var rand = Math.floor(Math.random() * instances.length) + 1;
-    var chosen = instances[rand - 1];
-    
-    var midpoint = [(chosen[0] + current[0]) / 2, (chosen[1] + current[1]) / 2];
-    drawDotSave(midpoint[0], midpoint[1]);
-}, timeout);
-
-increase = setInterval(() => {
-    timeout /= 2;
-    clearInterval(interval);
-    interval = setInterval(() => {
+    for (var i = 0; i < count; i++) {
         var rand = Math.floor(Math.random() * instances.length) + 1;
         var chosen = instances[rand - 1];
         
         var midpoint = [(chosen[0] + current[0]) / 2, (chosen[1] + current[1]) / 2];
         drawDotSave(midpoint[0], midpoint[1]);
-    }, timeout);
-    if (timeout < 0.1) {
-        for (var i = 0; i < 100000; i++) {
+    }
+}, 5);
+
+increase = setInterval(() => {
+    count += 1000;
+    clearInterval(interval);
+    interval = setInterval(() => {
+        for (var i = 0; i < count; i++) {
             var rand = Math.floor(Math.random() * instances.length) + 1;
             var chosen = instances[rand - 1];
             
             var midpoint = [(chosen[0] + current[0]) / 2, (chosen[1] + current[1]) / 2];
             drawDotSave(midpoint[0], midpoint[1]);
         }
-    }
-    console.log(timeout);
-}, 5000);
+    }, 5);
+}, 1000);
