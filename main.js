@@ -1,8 +1,14 @@
 var c = document.getElementById("render");
 var ctx = c.getContext("2d");
-c.width = window.innerWidth*10;
-c.height = window.innerHeight*10;
 
+if ((window.innerWidth > 0) && (window.innerHeight > 0)) {
+    c.width = window.innerWidth*10;
+    c.height = window.innerHeight*10;
+}
+else {
+    c.width = screen.width*10;
+    c.height = screen.height*10;
+}
 function drawDot(x, y, r=1) {
     ctx.fillRect(x,y,r,r);
     instances.push([x, y]);
