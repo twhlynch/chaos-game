@@ -8,6 +8,7 @@ if ((window.innerWidth > 0) && (window.innerHeight > 0)) {
 else {
     c.width = screen.width*10;
     c.height = screen.height*10;
+    document.body.innerHTML = screen.width;
 }
 function drawDot(x, y, r=1) {
     ctx.fillRect(x,y,r,r);
