@@ -1,8 +1,8 @@
 var c = document.getElementById("render");
 var ctx = c.getContext("2d");
 
-c.width = document.width()*10;
-c.height = document.height()*10;
+c.width = $(document).width();
+c.height = $(document).height();
 //document.body.innerHTML = toString(screen.width) + toString(window.innerWidth);
 
 function drawDot(x, y, r=1) {
