@@ -4,8 +4,6 @@ var ctx = c.getContext("2d");
 c.width = $(document).width()*10;
 c.height = $(document).height()*10;
 
-//document.body.innerText = $(document).width() + " " + $(document).height();
-
 function drawDot(x, y, r=1) {
     ctx.fillRect(x,y,r,r);
     instances.push([x, y]);
@@ -22,8 +20,6 @@ var current = seed;
 var instances = [];
 
 drawDot(c.width/2, 10, 2);
-//drawDot(c.width-10, 100, 2);
-//drawDot(10, 100, 2);
 drawDot(c.width-10, c.height-10, 2);
 drawDot(10, c.height-10, 2);
 
