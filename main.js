@@ -3,7 +3,8 @@ var ctx = c.getContext("2d");
 
 c.width = $(document).width()*10;
 c.height = $(document).height()*10;
-//document.body.innerHTML = toString(screen.width) + toString(window.innerWidth);
+
+document.body.innerHTML = toString($(document).width());
 
 function drawDot(x, y, r=1) {
     ctx.fillRect(x,y,r,r);
