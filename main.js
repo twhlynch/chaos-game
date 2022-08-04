@@ -4,7 +4,7 @@ var ctx = c.getContext("2d");
 c.width = $(document).width()*10;
 c.height = $(document).height()*10;
 
-document.body.innerHTML = toString($(document).width());
+console.log($(document).width());
 
 function drawDot(x, y, r=1) {
     ctx.fillRect(x,y,r,r);
