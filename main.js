@@ -1,8 +1,13 @@
 var c = document.getElementById("render");
 var ctx = c.getContext("2d");
 
-c.width = $(document).width()*10;
-c.height = $(document).height()*10;
+if (window.innerWidth < window.innerHeight) {
+    c.width = window.innerWidth*10;
+    c.height = window.innerWidth*10;
+} else {
+    c.width = window.innerHeight*10;
+    c.height = window.innerHeight*10;
+}
 
 function drawDot(x, y, r=1) {
     ctx.fillRect(x,y,r,r);
